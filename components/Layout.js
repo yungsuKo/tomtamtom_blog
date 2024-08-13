@@ -2,9 +2,9 @@ import Header from './Header';
 
 export default function Layout({ children }) {
   return (
-    <div className="mx-auto max-w-2xl py-8">
+    <div>
       <Header />
-      {children}
+      <div className="mx-auto max-w-2xl py-8">{children}</div>
     </div>
   );
 }
