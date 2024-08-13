@@ -9,7 +9,6 @@ const mdxComponents = {
 export default function PostDetail({ params }) {
   console.log(params);
   const path = params.post.join('/');
-
   const post = allPosts.find((post) => {
     return post._raw.flattenedPath === path;
   });
