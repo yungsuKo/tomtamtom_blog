@@ -9,10 +9,27 @@ import {
 } from '@/components/ui/menubar';
 import Image from 'next/image';
 import Link from 'next/link';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 export default function Header() {
+  const [scrollDirection, setscrollDirection] = useState('');
+  useEffect(() => {
+    let lastScrollY = window.pageYOffset;
+    const updateScrollDirection = () => {
+      const direction = scrollY > lastScrollY ? 'down' : 'up';
+      console.log(scrollY);
+      if (direction !== scrollDirection) {
+        setscrollDirection(direction);
+      }
+    };
+    window.addEventListener('scroll', updateScrollDirection);
+    return () => {
+      window.removeEventListener('scroll', updateScrollDirection);
+    };
+  }, [scrollDirection]);
+
   return (
-    <div className="top-0 sticky border-b-2 border-gray-400 bg-black">
+    <div className="top-0 sticky border-gray-400 bg-black">
       <div className="flex px-12 py-4  mx-auto ">
         <Link href={'/'}>
           <div className="flex items-center">로고</div>
