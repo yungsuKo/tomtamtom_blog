@@ -36,15 +36,18 @@ export default function Header() {
     >
       <div className="flex px-12 py-4  mx-auto ">
         <Link href={'/'}>
-          <div className="flex items-center">로고</div>
+          <div className="flex flex-col items-center relative">
+            <p className="font-extrabold">TOMTAMTOM</p>
+            <p className="font-thin text-xs">Growth Factory</p>
+          </div>
         </Link>
         <div className="flex-1 flex justify-end gap-8">
-          <div>aaa</div>
-          <div>bbb</div>
-          <div>ccc</div>
+          <div className="flex items-center">aaa</div>
+          <div className="flex items-center">bbb</div>
+          <div className="flex items-center">ccc</div>
         </div>
-        <div className="ml-8">
-          <DarkMode />
+        <div className="ml-8 flex items-center">
+          <DarkMode className="" />
         </div>
       </div>
     </div>
