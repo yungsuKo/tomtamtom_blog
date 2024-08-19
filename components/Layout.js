@@ -1,3 +1,4 @@
+import Footer from './Footer';
 import Header from './Header';
 import { ThemeProvider } from 'next-themes';
 
@@ -7,6 +8,7 @@ export default function Layout({ children }) {
       <div className="">
         <Header />
         <div className="mx-auto max-w-2xl py-8 px-4 md:px-0">{children}</div>
+        <Footer />
       </div>
     </ThemeProvider>
   );

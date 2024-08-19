@@ -35,14 +35,14 @@ export default function Header() {
         isScroll ? 'border-b-4 border-gray-400 duration-1000' : ''
       }`}
     >
-      <div className="flex px-12 py-4  mx-auto">
+      <div className="flex px-4 py-4 mx-auto md:px-12">
         <Link href={'/'}>
           <div className="flex flex-col items-center relative">
             <p className="font-extrabold">TOMTAMTOM</p>
             <p className="font-thin text-xs">Growth Factory</p>
           </div>
         </Link>
-        <div className="flex-1 flex justify-end gap-4">
+        <div className="flex-1 flex justify-end gap-2 md:gap-4">
           <div className="flex items-center">
             <Button asChild className="dark:bg-slate-700">
               <Link href={'/'}>Blogs</Link>
