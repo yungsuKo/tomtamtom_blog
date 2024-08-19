@@ -74,7 +74,9 @@ export default function Home() {
               key={category}
               data-id={category}
               className={
-                selectedCategories.includes(category) ? 'bg-cyan-700' : ''
+                selectedCategories.includes(category)
+                  ? 'bg-cyan-200 dark:bg-cyan-700'
+                  : ''
               }
               onClick={onClickCategory}
             >

@@ -1,10 +1,10 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
-// import remarkGfm from 'remark-gfm';
-// import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
-// import rehypeHighlight from 'rehype-highlight';
-// import rehypePrettyCode from 'rehype-pretty-code';
-// import rehypeSlug from 'rehype-slug';
-// import rehypeExternalLinks from 'rehype-external-links';
+import rehypePrettyCode from 'rehype-pretty-code';
+import remarkGfm from 'remark-gfm';
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeSlug from 'rehype-slug';
+import rehypeExternalLinks from 'rehype-external-links';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -31,7 +31,18 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-export default makeSource({
+const rehypeOptions = {
+  theme: 'slack-dark',
+  keepBackground: true,
+};
+
+const contentSource = makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [[rehypePrettyCode, rehypeOptions]],
+  },
 });
+
+export default contentSource;

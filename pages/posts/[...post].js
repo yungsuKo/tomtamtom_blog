@@ -22,7 +22,7 @@ export default function PostDetail({ params }) {
         </time>
         <h1 className="text-3xl font-bold">{post.title}</h1>
       </div>
-      <MDXContent className="max-w-xl" components={mdxComponents} />
+      <MDXContent className="max-w-xl" />
     </article>
   );
 }
