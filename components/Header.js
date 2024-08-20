@@ -49,10 +49,14 @@ export default function Header() {
             </Button>
           </div>
           <div className="flex items-center">
-            <Button className="dark:bg-slate-700">About</Button>
+            <Button className="dark:bg-slate-700">
+              <Link href={'/about'}>About</Link>
+            </Button>
           </div>
           <div className="flex items-center">
-            <Button className="dark:bg-slate-700">Function</Button>
+            <Button className="dark:bg-slate-700">
+              <Link href={'/functions'}>Functions</Link>
+            </Button>
           </div>
         </div>
         <div className="ml-4 flex items-center">
