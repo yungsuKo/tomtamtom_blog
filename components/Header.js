@@ -14,6 +14,7 @@ import DarkMode from './DarkMode';
 import { Button } from './ui/button';
 
 export default function Header() {
+  // github test
   const [isScroll, setisScrollDirection] = useState(false);
   useEffect(() => {
     const updateScrollDirection = () => {
