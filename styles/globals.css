@@ -23,7 +23,13 @@
     @apply text-lg leading-8 font-medium;
   }
   ol {
-    @apply list-decimal list-inside;
+    @apply list-decimal pl-10;
+  }
+  ul {
+    @apply list-disc pl-10 my-1;
+  }
+  p {
+    @apply indent-2;
   }
 }
 @tailwind components;
