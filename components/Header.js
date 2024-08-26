@@ -16,24 +16,31 @@ import { Button } from './ui/button';
 export default function Header() {
   // github test
   const [isScroll, setisScrollDirection] = useState(false);
+  const [scrollP, setScrollP] = useState(0);
+
   useEffect(() => {
+    const windowH =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    console.log(windowH);
     const updateScrollDirection = () => {
       const direction = scrollY > 0 ? true : false;
       if (direction !== isScroll) {
         setisScrollDirection(direction);
       }
+      setScrollP((window.scrollY / windowH) * 100);
     };
     window.addEventListener('scroll', updateScrollDirection);
-    console.log(isScroll);
+    console.log(scrollP);
     return () => {
       window.removeEventListener('scroll', updateScrollDirection);
     };
-  }, [isScroll]);
+  }, [scrollP]);
 
   return (
     <div
       className={`top-0 sticky bg-white dark:bg-black transition-all ${
-        isScroll ? 'border-b-4 border-gray-400 duration-1000' : ''
+        isScroll ? 'border-b-2 border-gray-400 duration-1000' : ''
       }`}
     >
       <div className="flex px-4 py-4 mx-auto md:px-12">
@@ -64,6 +71,7 @@ export default function Header() {
           <DarkMode className="" />
         </div>
       </div>
+      <div className="h-2 w-full bg-blue-200"></div>
     </div>
   );
 }
