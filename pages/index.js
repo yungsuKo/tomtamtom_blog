@@ -5,12 +5,12 @@ import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
+  const posts = allPosts
+    .filter((post) => post.category !== 'informations')
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
   const contentPerCategory = Object.fromEntries(
     Object.entries(
-      allPosts.reduce((acc, post) => {
+      posts.reduce((acc, post) => {
         const category = post.category;
         acc[category] = (acc[category] || 0) + 1;
         return acc;

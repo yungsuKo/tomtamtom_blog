@@ -13,25 +13,32 @@ import React, { useEffect, useState } from 'react';
 import DarkMode from './DarkMode';
 import { Button } from './ui/button';
 
+function ProgressBar({ scrollP }) {
+  return (
+    <div className="h-2 w-full bg-gray-200">
+      <div className={`bg-blue-700 h-full`} style={{ width: scrollP }}></div>
+    </div>
+  );
+}
+
 export default function Header() {
-  // github test
   const [isScroll, setisScrollDirection] = useState(false);
-  const [scrollP, setScrollP] = useState(0);
+  const [scrollP, setScrollP] = useState('0');
 
   useEffect(() => {
     const windowH =
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
-    console.log(windowH);
+
     const updateScrollDirection = () => {
       const direction = scrollY > 0 ? true : false;
       if (direction !== isScroll) {
         setisScrollDirection(direction);
       }
-      setScrollP((window.scrollY / windowH) * 100);
+      setScrollP(`${Math.floor((window.scrollY / windowH) * 100)}%`);
     };
+
     window.addEventListener('scroll', updateScrollDirection);
-    console.log(scrollP);
     return () => {
       window.removeEventListener('scroll', updateScrollDirection);
     };
@@ -71,7 +78,7 @@ export default function Header() {
           <DarkMode className="" />
         </div>
       </div>
-      <div className="h-2 w-full bg-blue-200"></div>
+      <ProgressBar scrollP={scrollP} />
     </div>
   );
 }
