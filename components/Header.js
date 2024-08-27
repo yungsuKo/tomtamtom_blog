@@ -35,7 +35,7 @@ export default function Header() {
       if (direction !== isScroll) {
         setisScrollDirection(direction);
       }
-      setScrollP(`${Math.floor((window.scrollY / windowH) * 100)}%`);
+      setScrollP(`${(window.scrollY / windowH) * 100}%`);
     };
 
     window.addEventListener('scroll', updateScrollDirection);
@@ -48,7 +48,7 @@ export default function Header() {
     <div
       className={`top-0 sticky bg-white dark:bg-black transition-all ${
         isScroll ? 'border-b-2 border-gray-400 duration-1000' : ''
-      }`}
+      } z-50`}
     >
       <div className="flex px-4 py-4 mx-auto md:px-12">
         <Link href={'/'}>
